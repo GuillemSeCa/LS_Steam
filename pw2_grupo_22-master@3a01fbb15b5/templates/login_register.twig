@@ -1,0 +1,152 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ formTitle }}{% endblock %}
+{% block content %}
+
+    <div class="columns is-centered">
+        <div class="column box is-two-thirds">
+            <h1 class="title ">{{ formTitle }}</h1>
+            {% if formErrors.db %}
+                <p class="is-danger">{{ formErrors.db }}</p>
+            {% endif %}
+
+            {% if flash_messages is not empty %}
+
+                {% for notification in flash_messages %}
+                    <div class="notification is-danger">
+                        <button class="delete"></button>
+                        <p>{{ notification }}</p>
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+
+            <form action="{{ formAction }}" method="{{ formMethod }}" accept-charset="utf-8">
+
+                <div class="field">
+
+                    {% if is_login %}
+                        <label class="label">Email or Username</label>
+                    {% else %}
+                        <label class="label">Email</label>
+                    {% endif %}
+                    <div class="field">
+
+                        <div class="control has-icons-left">
+                            <input class="input {% if not is_login and formErrors.email %}{{ "is-danger" }}{% endif %}"
+                                   type="text" placeholder="La Salle email"
+                                   name="email"
+                                   value="{% if formData.email %}{{ formData.email }}{% endif %}">
+                            <span class="icon is-small is-left">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                        </div>
+                    </div>
+
+                    {% if not is_login and formErrors.email %}
+                        <p class="help is-danger">{{ formErrors.email }}</p>
+                    {% endif %}
+
+                </div>
+
+                {% if not is_login %}
+                    <div class="field">
+
+                        <label class="label">Username</label>
+                        <p class="control has-icons-left">
+                            <input class="input {% if formErrors.username %}{{ "is-danger" }}{% endif %}" type="text"
+                                   name="username" placeholder="Username"
+                                   value="{% if formData.username %}{{ formData.username }}{% endif %}">
+                            <span class="icon is-small is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                        </p>
+                        {% if formErrors.username %}
+                            <p class="help is-danger">{{ formErrors.username }}</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <p class="control has-icons-left">
+                        <input class="input {% if not is_login and formErrors.password %}{{ "is-danger" }}{% endif %}"
+                               type="password" name="password" placeholder="Password"
+                               value="{% if formData.password %}{{ formData.password }}{% endif %}">
+                        <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                    </p>
+                    {% if not is_login and formErrors.password %}
+                        <p class="help is-danger">{{ formErrors.password }}</p>
+                    {% endif %}
+                </div>
+
+                {% if not is_login %}
+
+                    <div class="field">
+
+                        <label class="label">Repeat password</label>
+                        <p class="control has-icons-left">
+                            <input class="input {% if formErrors.password_repeat %}{{ "is-danger" }}{% endif %}"
+                                   type="password" name="password_repeat" placeholder="Same password"
+                                   value="{% if formData.password_repeat %}{{ formData.password_repeat }}{% endif %}">
+                            <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                        </p>
+                        {% if formErrors.password_repeat %}
+                            <p class="help is-danger">{{ formErrors.password_repeat }}</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Birthday</label>
+                        <p class="control">
+                            <input type="date" name="birthday" id="birthday"
+                                   value="{% if formData.birthday %}{{ formData.birthday }}{% endif %}">
+                        </p>
+                        {% if formErrors.birthday %}
+                            <p class="help is-danger">{{ formErrors.birthday }}</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Phone</label>
+                        <div class="field">
+                            <div class="field has-addons">
+                                <p class="control">
+                                    <a class="button is-static">
+                                        +34
+                                    </a>
+                                </p>
+
+                                <p class="control is-expanded">
+                                    <input class="input  {% if formErrors.phone %}{{ "is-danger" }}{% endif %}"
+                                           type="tel" name="phone" placeholder="Your phone number"
+                                           value="{% if formData.phone %}{{ formData.phone }}{% endif %}">
+                                </p>
+                            </div>
+                            {% if formErrors.phone %}
+                                <p class="help is-danger">{{ formErrors.phone }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                <div class="field">
+                    <p class="control">
+                        <input type="submit" class="button is-success" value="{{ submitValue }}">
+                    </p>
+                    {% if is_login and (formErrors.email or formErrors.username or formErrors.password) %}
+                        <p class="help is-danger">The credentials introduced are not valid</p>
+                    {% endif %}
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

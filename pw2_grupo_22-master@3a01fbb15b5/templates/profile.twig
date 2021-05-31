@@ -1,0 +1,117 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ formTitle }}{% endblock %}
+{% block content %}
+    <section class="section">
+               <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column box is-two-thirds">
+                            <div class="is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-between is-align-content-space-evenly is-align-items-center">
+                                <div class="field">
+                                    <h1 class="title is-1">{{ formTitle }}</h1>
+
+                                    {% if formErrors.success %}
+                                        <p class="has-text-success">{{ formErrors.success }}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="field">
+                                    <figure class="image is-128x128">
+                                        <img src="{{ profilePic }}">
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <form action="{{ formAction }}" enctype="multipart/form-data" method="{{ formMethod }}" accept-charset="utf-8">
+
+                                <fieldset disabled>
+                                    <div class="field mt-2">
+                                        <label class="label">Username</label>
+                                        <p class="control has-icons-left">
+                                            <input class="input {% if formErrors.username %}{{ "is-danger" }}{% endif %}" type="text" name="username" placeholder="Username"
+                                                   value="{{ username }}">
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-user"></i>
+                                            </span>
+                                        </p>
+                                        {% if formErrors.username %}
+                                            <p class="help is-danger">{{ formErrors.username }}</p>
+                                        {% endif %}
+                                    </div>
+                                </fieldset>
+
+                                <fieldset disabled>
+                                    <div class="field mt-2">
+                                        <label class="label">Email</label>
+                                        <p class="control has-icons-left">
+                                            <input class="input {% if formErrors.email %}{{ "is-danger" }}{% endif %}" type="text" name="email" placeholder="Email"
+                                                   value="{{ email }}">
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-envelope"></i>
+                                            </span>
+                                        </p>
+                                        {% if formErrors.email %}
+                                            <p class="help is-danger">{{ formErrors.email }}</p>
+                                        {% endif %}
+                                    </div>
+                                </fieldset>
+
+                                <div class="field mt-2">
+                                    <label class="label">Phone</label>
+                                        <div class="field">
+                                            <div class="field has-addons">
+                                                <p class="control">
+                                                    <a class="button is-static">+34</a>
+                                                </p>
+
+                                                <p class="control is-expanded">
+                                                    <input class="input  {% if formErrors.phone %}{{ "is-danger" }}{% endif %}" type="tel" name="phone" placeholder="Your phone number"
+                                                           value="{{ phone }}">
+                                                </p>
+                                            </div>
+                                            {% if formErrors.phone %}
+                                                <p class="help is-danger">{{ formErrors.phone }}</p>
+                                            {% endif %}
+                                        </div>
+                                </div>
+
+
+                                <div class="is-flex is-flex-direction-row is-flex-wrap-wrap	is-justify-content-space-evenly	is-align-content-space-evenly is-align-items-start mb-3">
+                                    <fieldset disabled>
+                                        <div class="field">
+                                            <label class="label">Birthday</label>
+                                            <p class="control">
+                                                <input type="date" name="birthday" id="birthday"
+                                                       value="{{ birthday }}">
+                                            </p>
+                                            {% if formErrors.birthday %}
+                                                <p class="help is-danger">{{ formErrors.birthday }}</p>
+                                            {% endif %}
+                                        </div>
+                                    </fieldset>
+
+                                    <div class="field">
+                                        <label class="label">Profile picture</label>
+                                        <input type="file" name="files[]" multiple="multiple">
+
+                                        {% if formErrors.profilePic %}
+                                            <p class="help is-danger">{{ formErrors.profilePic }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="is-flex is-flex-direction-row is-flex-wrap-wrap	is-justify-content-space-evenly	is-align-content-space-evenly is-align-items-start">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input type="submit" class="button is-success" value="{{ submitValue }}">
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <a class="button" href="{{ full_url_for('changePassword') }}">Change Password</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    </section>
+{% endblock %}

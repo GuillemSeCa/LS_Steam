@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ game.title }}{% endblock %}
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column box is-full">
+                    <div class="tile is-parent gameContainer">
+                        <img class="tile is-child gameImage" src="{{ game.thumbnail }}">
+
+                        <div class="gameSpecs">
+                            <div class="gameSpecsInside">
+
+                                <h3 class="title white pr-4">{{ game.title }}</h3>
+                                <p class="subtitle white">{{ game.price }}$</p>
+                                <p class="subtitle white">Cheapest price
+                                    ever {% if game.cheapestPriceEver == -1 %}{{ game.price }}{% else %}  {{ game.cheapestPriceEver }}{% endif %}
+                                    $</p>
+                                <p class="subtitle white">Metacritic Score: {{ game.metacriticScore }}</p>
+                                <p class="subtitle white">Release year {{ game.releaseDate|date('d - M - Y') }}</p>
+
+                                <button type="submit" name="BUY_BUTTON" data-gameid="{{ game.gameid }}"
+                                        class="button is-success" style="align-self:flex-start">Buy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

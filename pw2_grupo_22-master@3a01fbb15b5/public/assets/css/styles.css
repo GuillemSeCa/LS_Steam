@@ -1,0 +1,110 @@
+
+body{
+
+}
+.wrap{
+    flex-wrap:wrap;
+}
+
+.bg-img {
+    background-position: center center;
+    background-size:  cover;
+
+}
+
+/* Container holding the image and the text */
+.gameContainer {
+    position: relative;
+}
+
+.gameImage{
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(0,0,0,0.8)
+}
+
+/* Bottom right text */
+.gameSpecs {
+    position: absolute;
+    border-radius: 6px;
+    top: 0.75rem;
+    left: 0.75rem;
+    width: calc(100% - 1.5rem);
+    height: calc(100% - 1.5rem);
+    background-color: rgba(1,0,0,0.75);
+    opacity:0;
+    transition: .5s ease;
+}
+
+.gameSpecsInside{
+    display: flex;
+    height: 100%;
+    flex-direction:column;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem;
+}
+
+.star{
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #4a4a4a;
+}
+
+.negated.star{
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: orange;
+}
+
+.star:hover{
+    color: orange;
+}
+
+.negated.star:hover{
+    color: #4a4a4a;
+}
+
+.white{
+    color: white;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.gameContainer:hover .gameSpecs {
+    opacity: 1;
+}
+
+.ksk{
+    display: none !important;
+}
+
+.kska{
+    animation-name: exit_item;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+/*POT SER QUALSEVOL ANIMACIO! YAY!*/
+@keyframes exit_item {
+    from {left: 0;}
+    to {left: 120%}
+}
+
+.image-rounded {
+    border-radius: 8px;
+}
+
+.circle-separator {
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background: gray;
+}
+
+.mainTitleSpecial{
+    color: #DD4a4a;
+}
+
+.bigTitle{
+    font-size: 5rem!important;
+}

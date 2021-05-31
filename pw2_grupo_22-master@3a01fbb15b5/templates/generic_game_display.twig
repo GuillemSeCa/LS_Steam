@@ -1,0 +1,133 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ formTitle }}{% endblock %}
+{% block content %}
+    <section class="section">
+
+
+        {% if game_deals is empty %}
+            {% if isMyGames %}
+                <h1 class="title is-1">No games purcased yet :(</h1>
+
+            {% elseif isWishlist %}
+                <h1 class="title is-1">No games saved yet :(</h1>
+
+            {% endif %}
+            <a href="{{ full_url_for('store') }}">Click here to go to the store</a>
+        {% else %}
+            <h1 class="title is-1">{{ formTitle }}</h1>
+            <h2 class="subtitle ">{{ formSubtitle }}</h2>
+        {% endif %}
+        {% if flash_messages is not empty %}
+
+            {% for notification in flash_messages %}
+                <div class="notification is-danger">
+                    <button class="delete"></button>
+                    <p>{{ notification }}</p>
+                </div>
+            {% endfor %}
+
+        {% endif %}
+        {% if game_deals %}
+
+            {% set i = 0 %}
+            {% if isMyGames %}
+                {% set numberOfCols = 1 %}
+            {% else %}
+
+                {% set numberOfCols = random(2,3) %}
+            {% endif %}
+            {% for deal in game_deals %}
+
+                {% if i is divisible by(numberOfCols) %}
+                    {% if i != 0 %}
+                        </div>
+                        {% if isMyGames %}
+                            {% set numberOfCols = 1 %}
+                        {% else %}
+
+                            {% set numberOfCols = random(2,3) %}
+                        {% endif %}
+                    {% endif %}
+
+                    <div class="tile is-ancestor" id="{{ numberOfCols }}">
+
+                {% endif %}
+
+                <div class="tile is-parent gameContainer">
+                    <img class="tile is-child gameImage" src="{{ deal.thumbnail }}">
+
+                    <div class="gameSpecs">
+                        <div class="gameSpecsInside">
+
+                            {% if isMyGames %}
+                                <h3 class="title is-1 white pr-4 mt-5">{{ deal.title }}</h3>
+                                <p class="subtitle white">Retail price {{ deal.price }}$</p>
+                            {% else %}
+                            <div>
+                                <h3 class="title white pr-4">{{ deal.title }}</h3>
+                                <p class="subtitle white">{{ deal.price }}$</p>
+                            {% endif %}
+
+                            {% if isMyGames %}
+                                <p class="subtitle white">Cheapest price
+                                    ever {% if deal.cheapestPriceEver == -1 %}{{ deal.price }}{% else %}  {{ deal.cheapestPriceEver }}{% endif %}
+                                    $</p>
+
+                                <p class="subtitle white">Metacritic Score {{ deal.metacriticScore }}</p>
+                                <p class="subtitle white">Release year {{ deal.releaseDate|date('d - M - Y') }}</p>
+                            {% endif %}
+
+                                {% if not isMyGames %}
+
+                                </div>
+                                    {% endif %}
+                            <div class="is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-between is-align-content-space-evenly is-align-items-center">
+
+
+                                {% if not isMyGames %}
+                                    {% if deal.owned %}
+                                        {# Button Perque no esta suportat el loading de bulma amb inputs. #}
+                                        {# <input type="submit" class="button" disabled value="Owned" style="align-self:flex-start"> #}
+                                        <button type="submit" class="button" disabled style="align-self:flex-start">
+                                            Owned
+                                        </button>
+                                    {% else %}
+
+                                        {% if is_user_logged %}
+                                            {# Button Perque no esta suportat el loading de bulma amb inputs. #}
+                                            <button type="submit" name="BUY_BUTTON" data-gameid="{{ deal.gameid }}"
+                                                    class="button is-success" style="align-self:flex-start">Buy
+                                            </button>
+                                            {# <form action="{{ buyAction|replace({'1':deal.gameid})}}" method="POST" accept-charset="utf-8"> #}
+                                            {# <button type="submit" id="{{ deal.gameid }}" class="button is-success" value="Buy" style="align-self:flex-start"> #}
+                                            {# </form> #}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+
+                                {% if isWishlist %}
+                                    <a class="icon" href="{{ full_url_for('wishlist') }}/{{ deal.gameid }}">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                {% endif %}
+
+
+                            {% if not isMyGames and not deal.owned and is_user_logged %}
+                                <a class="icon{% if deal.wished %} negated{% endif %} star"
+                                   data-gameid="{{ deal.gameid }}" name="WISH_BUTTON">
+                                    <i class="fas fa-star"></i>
+                                </a>
+                            {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% set i = i + 1 %}
+            {% endfor %}
+
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

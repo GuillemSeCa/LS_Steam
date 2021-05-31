@@ -1,0 +1,14 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ formTitle }}{% endblock %}
+{% block content %}
+
+    <div class="columns is-centered has-text-centered">
+        <div class="column box is-two-thirds is-success">
+            <h1 class="title is-1">Registration successful</h1>
+            <p class="subtitle">Congratulations, your account has been successfully created.</p>
+            <img class="mb-4" src="{{ gif_url }}" alt="A success gif image">
+            <p>Please <b>click the link</b> that we sent to "{{ user_email }}" to <b>validate your account</b>.</p>
+        </div>
+    </div>
+{% endblock %}

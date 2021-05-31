@@ -1,0 +1,193 @@
+-- Adminer 4.8.0 MySQL 8.0.23 dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+SET NAMES utf8mb4;
+
+DROP TABLE IF EXISTS `Game`;
+CREATE TABLE `Game` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `gameId` int DEFAULT NULL,
+  `titol` varchar(1000) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `thumbnail` varchar(1000) DEFAULT NULL,
+  `metacriticStore` int DEFAULT NULL,
+  `releaseDate` datetime DEFAULT NULL,
+  `cheapestPrice` float DEFAULT NULL,
+  `wished` tinyint(1) DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `Game` (`id`, `gameId`, `titol`, `price`, `thumbnail`, `metacriticStore`, `releaseDate`, `cheapestPrice`, `wished`) VALUES
+(1,	155405,	'Candle',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/420060/header.jpg?t=1562676294',	80,	'2016-11-11 00:00:00',	-1,	0),
+(2,	43,	'Left 4 Dead 2',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg?t=1601578341',	89,	'2009-11-16 00:00:00',	-1,	0),
+(3,	93503,	'BioShock Infinite',	29.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/8870/header.jpg?t=1602794480',	94,	'2013-03-25 00:00:00',	5.27,	0),
+(4,	146648,	'Pathologic Classic HD',	12.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/384110/header.jpg?t=1604189746',	76,	'2015-10-29 00:00:00',	0.98,	0),
+(5,	143048,	'Titan Souls',	14.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/297130/header.jpg?t=1603737892',	74,	'2015-04-14 00:00:00',	-1,	0),
+(6,	145330,	'Airscape: The Fall of Gravity',	4.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/317250/header.jpg?t=1574484005',	75,	'2015-08-11 00:00:00',	-1,	0),
+(7,	96462,	'Making History: The Calm and the Storm',	4.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/6250/header.jpg?t=1573746017',	70,	'2007-03-13 00:00:00',	0.37,	0),
+(8,	206344,	'Felix The Reaper',	14.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/919410/header.jpg?t=1619682247',	71,	'2019-10-17 00:00:00',	-1,	0),
+(9,	145610,	'A Fistful of Gun',	12.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/229810/header.jpg?t=1568671190',	60,	'2015-09-24 00:00:00',	-1,	0),
+(10,	174445,	'High Hell',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/673000/header.jpg?t=1567625459',	79,	'2017-10-23 00:00:00',	-1,	0),
+(11,	189551,	'Semblance',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/700160/header.jpg?t=1593030905',	79,	'2018-07-24 00:00:00',	-1,	0),
+(12,	100790,	'Command and Conquer 3 Tiberium Wars',	14.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/24790/header.jpg?t=1615390726',	85,	'2007-03-26 00:00:00',	2.99,	0),
+(13,	117494,	'OlliOlli',	12.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/274250/header.jpg?t=1568670495',	78,	'2014-07-22 00:00:00',	0.99,	0),
+(14,	952,	'Avencast: Rise of the Mage',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/46410/header.jpg?t=1618234189',	68,	'2007-11-08 00:00:00',	-1,	0),
+(15,	221042,	'Commander 85',	12.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/1086990/header.jpg?t=1619766057',	45,	'2020-09-30 00:00:00',	-1,	0),
+(16,	101413,	'Shadow Warrior',	39.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/233130/header.jpg?t=1591817773',	73,	'2013-09-26 00:00:00',	3.99,	0),
+(17,	108262,	'Broforce',	14.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/274190/header.jpg?t=1620316483',	83,	'2014-04-07 00:00:00',	2.99,	0),
+(18,	152810,	'The Way',	14.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/311010/header.jpg?t=1619765001',	67,	'2016-05-19 00:00:00',	1.12,	0),
+(19,	100912,	'Guacamelee! Gold Edition',	19.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/214770/header.jpg?t=1616784585',	88,	'2013-08-08 00:00:00',	1.49,	0),
+(20,	166180,	'Stories Untold',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/558420/header.jpg?t=1568650809',	81,	'2017-02-27 00:00:00',	0,	0),
+(21,	173034,	'RUINER',	19.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/464060/header.jpg?t=1615922150',	75,	'2017-09-26 00:00:00',	0,	0),
+(22,	143337,	'NOT A HERO',	19.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/274270/header.jpg?t=1602206320',	75,	'2015-05-14 00:00:00',	2.59,	0),
+(23,	142024,	'Hotline Miami 2: Wrong Number',	14.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/274170/header.jpg?t=1619536621',	74,	'2015-03-10 00:00:00',	-1,	0),
+(24,	5115,	'Command and Conquer - Red Alert 3',	19.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/17480/header.jpg?t=1615390553',	82,	'2008-10-28 00:00:00',	3.99,	0),
+(25,	144515,	'Shadow Warrior 2',	39.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/324800/header.jpg?t=1595378501',	78,	'2016-10-13 00:00:00',	0,	0),
+(26,	145148,	'Dropsy',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/274350/header.jpg?t=1568665704',	80,	'2015-09-10 00:00:00',	1.99,	0),
+(27,	107266,	'LUFTRAUSERS',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/233150/header.jpg?t=1615922153',	80,	'2014-03-18 00:00:00',	1.49,	0),
+(28,	171016,	'Absolver',	29.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/473690/header.jpg?t=1613204316',	75,	'2017-08-29 00:00:00',	-1,	0),
+(29,	223905,	'Endless Legend',	29.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/289130/header.jpg?t=1620317754',	82,	'2014-04-24 00:00:00',	-1,	0),
+(30,	143300,	'RONIN',	12.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/274230/header.jpg?t=1568668513',	70,	'2015-06-30 00:00:00',	-1,	0),
+(31,	674,	'FlatOut: Ultimate Carnage',	19.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/12360/header.jpg?t=1570634248',	79,	'2008-08-26 00:00:00',	1.78,	0),
+(32,	174454,	'DRAGON BALL FighterZ',	59.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/678950/header.jpg?t=1617120109',	85,	'2018-01-26 00:00:00',	7.99,	0),
+(33,	93751,	'Don\'t Starve',	9.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/219740/header.jpg?t=1602117150',	79,	'2013-04-23 00:00:00',	-1,	0),
+(34,	218373,	'White Wings ',	19.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/1185680/header.jpg?t=1603180360',	0,	'2020-07-17 00:00:00',	-1,	0),
+(35,	157494,	'Phantaruk',	4.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/468930/header.jpg?t=1619765002',	53,	'2016-08-16 00:00:00',	0.37,	0),
+(36,	200577,	'One Finger Death Punch 2',	7.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/980300/header.jpg?t=1560879491',	83,	'2019-04-15 00:00:00',	1,	0),
+(37,	175234,	'Phantom Doctrine',	39.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/559100/header.jpg?t=1604683031',	73,	'2018-08-14 00:00:00',	3.99,	0),
+(38,	153795,	'On Rusty Trails',	12.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/277700/header.jpg?t=1598903896',	77,	'2016-06-13 00:00:00',	1.29,	0),
+(39,	999,	'Port Royale 2',	4.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/12470/header.jpg?t=1573746322',	75,	'2004-09-13 00:00:00',	0.49,	0),
+(40,	157,	'Serious Sam: The Random Encounter',	4.99,	'https://cdn.cloudflare.steamstatic.com/steam/apps/201480/header.jpg?t=1498590373',	64,	'2011-10-24 00:00:00',	0.49,	0);
+
+DROP TABLE IF EXISTS `friendRequests`;
+CREATE TABLE `friendRequests` (
+  `id_orig` int NOT NULL,
+  `id_dest` int NOT NULL,
+  `state` int DEFAULT '0',
+  `accept_time` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_orig`,`id_dest`),
+  KEY `id_dest` (`id_dest`),
+  CONSTRAINT `friendRequests_ibfk_1` FOREIGN KEY (`id_orig`) REFERENCES `users` (`id`),
+  CONSTRAINT `friendRequests_ibfk_2` FOREIGN KEY (`id_dest`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `friendRequests` (`id_orig`, `id_dest`, `state`, `accept_time`) VALUES
+(2,	1,	1,	'2021-05-06 22:02:52'),
+(4,	1,	0,	NULL);
+
+DROP TABLE IF EXISTS `ownedGames`;
+CREATE TABLE `ownedGames` (
+  `gameId` int NOT NULL,
+  `userId` int NOT NULL,
+  PRIMARY KEY (`gameId`,`userId`),
+  KEY `userId` (`userId`),
+  CONSTRAINT `ownedGames_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `ownedGames` (`gameId`, `userId`) VALUES
+(1,	1),
+(4,	1),
+(5,	1),
+(6,	1),
+(7,	1),
+(8,	1),
+(9,	1),
+(10,	1),
+(11,	1),
+(12,	1),
+(13,	1),
+(14,	1),
+(15,	1),
+(16,	1),
+(17,	1),
+(18,	1),
+(19,	1),
+(20,	1),
+(21,	1),
+(22,	1),
+(23,	1),
+(24,	1),
+(25,	1),
+(26,	1),
+(27,	1),
+(28,	1),
+(29,	1),
+(30,	1),
+(31,	1),
+(32,	1),
+(33,	1),
+(34,	1),
+(35,	1),
+(36,	1),
+(37,	1),
+(38,	1),
+(39,	1),
+(40,	1),
+(1,	4),
+(2,	4),
+(3,	4);
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `birthday` datetime NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `profilePic` varchar(255) DEFAULT NULL,
+  `money` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `birthday`, `phone`, `profilePic`, `money`) VALUES
+(1,	'Guillem',	'guillem@students.salle.url.edu',	'$2y$10$TciaOIf9ZJhpF6usSeCNIOS.uiZ.XmnCwMHPdpkNujnzIcGd/9rou',	'1888-03-03 00:00:00',	'',	NULL,	9409),
+(2,	'Maria',	'maria@students.salle.url.edu',	'$2y$10$dRD0zSzu0PUBCLwkRFGdq.UQTC3Yqz8.wWV4YzpF8BQHB8X01POyG',	'1999-05-05 00:00:00',	'666666666',	NULL,	100050),
+(3,	'Josep',	'josep@students.salle.url.edu',	'$2y$10$WamzU0QZWQVPzidTDWyvue7.hARKMbCzJFVOJOYpoRebNb4/uKqAy',	'1999-05-05 00:00:00',	'',	NULL,	0),
+(4,	'Joan',	'joan@students.salle.url.edu',	'$2y$10$/91vyXkiA3EiA7/6.kLT8OTE5OJhmzB6Q6izNFXeqxG.NgqzaG0p6',	'1999-05-05 00:00:00',	'',	NULL,	0);
+
+DROP TABLE IF EXISTS `usersPending`;
+CREATE TABLE `usersPending` (
+  `token` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `birthday` datetime NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  PRIMARY KEY (`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+DROP TABLE IF EXISTS `wishedGames`;
+CREATE TABLE `wishedGames` (
+  `gameId` int NOT NULL,
+  `userId` int NOT NULL,
+  PRIMARY KEY (`gameId`,`userId`),
+  KEY `userId` (`userId`),
+  CONSTRAINT `wishedGames_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `wishedGames` (`gameId`, `userId`) VALUES
+(43,	1),
+(1001,	1),
+(88117,	1),
+(89908,	1),
+(89996,	1),
+(93503,	1),
+(94059,	1),
+(101795,	1),
+(145291,	1),
+(155407,	1),
+(158443,	1),
+(159794,	1),
+(170097,	1),
+(191227,	1),
+(135790,	4),
+(146648,	4),
+(158443,	4);
+
+-- 2021-05-06 22:14:03

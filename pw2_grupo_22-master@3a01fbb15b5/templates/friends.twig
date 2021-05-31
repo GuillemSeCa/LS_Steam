@@ -1,0 +1,58 @@
+{% extends 'base.twig' %}
+
+{% block title %}Friends{% endblock %}
+
+{% block content %}
+
+    <section class="content">
+        <div class="mb-3 is-flex is-flex-direction-row is-flex-wrap-nowrap is-justify-content-space-between is-align-items-center">
+            <h1 class="is-size-1">{{ listTitle }}</h1>
+            {% if not isRequests %}
+                <div class="buttons">
+                    <a class="button is-primary is-light is-medium" href="{{ full_url_for('friendRequests') }}">
+                        Friend Requests
+                    </a>
+                    <a class="button is-link is-light is-medium" href="{{ full_url_for('sendRequest') }}">
+                        Send Request
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+        {% for friend in friendList %}
+        <div class="box p-2">
+            <div class="is-flex is-flex-direction-row is-flex-wrap-nowrap is-justify-content-space-between is-align-items-center">
+                <div class="is-flex is-flex-direction-row is-flex-wrap-nowrap is-justify-content-flex-start is-align-items-center">
+                    <div class="ml-3 mr-2">
+                        <figure class="image is-48x48 m-0">
+                            <img class="image-rounded" src="../uploads/{{ friend.profilePic }}">
+                        </figure>
+                    </div>
+                    <div class="circle-separator mx-1 p-1"></div>
+                    <div class="mx-1 is-medium">
+                        <p>{{ friend.username }}</p>
+                    </div>
+                </div>
+                {% if not isRequests %}
+                    <div class="mr-3">
+                        <p>{{ friend.acceptDate }}</p>
+                    </div>
+                {% else %}
+                    <div class="buttons mr-3">
+                        <form action="{{ accept_href|replace({'0':friend.id})}}" method="GET" accept-charset="utf-8">
+                            <input type="submit" class="button is-success is-light mr-2" value="Accept">
+                        </form>
+                        <form action="{{ decline_href|replace({'0':friend.id})}}" method="GET" accept-charset="utf-8">
+                            <input type="submit" class="button is-danger is-light ml-2" value="Decline">
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        {% if friendList|length == 0 %}
+            <p>{{ emptyMessage }}</p>
+        {% endif %}
+    </section>
+
+{% endblock %}

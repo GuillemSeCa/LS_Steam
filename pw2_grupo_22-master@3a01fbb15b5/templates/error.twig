@@ -1,0 +1,32 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ game.title }}{% endblock %}
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column box is-two-thirds">
+                    <h3 class="title is-2" >
+                    {% if error_message %}
+                        {{ error_message }}
+                    {% else %}
+                        This is weird... You got a {{ error_code }} code
+                    {% endif %}
+                    </h3>
+
+                    <div class="tile is-parent gameContainer">
+                        <img class="tile is-child gameImage" src="{{ gif_url }}" alt="A error gif image">
+
+                    <div class="gameSpecs">
+
+                    <div class="gameSpecsInside">
+                        <h3 class="title white pr-4">Don't bother looking here...</h3>
+                    </div>
+                </div>
+                </div>
+                    <a href="{{ full_url_for('wishlist') }}">Click here to go to return to wishlist</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
