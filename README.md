@@ -1,5 +1,7 @@
 # LSteam
 
+Project made in colaboration with Adrià Arroyo ([@Arrooy](https://github.com/Arrooy)) and Miquel Saula ([@MSaula](https://github.com/MSaula))
+
 ## Com executar la AC. 
 1. Obrir una terminal i buscar la carpeta del projecte
 1. <code>docker-compose up -d</code>
@@ -120,4 +122,4 @@ MYSQL_DATABASE=lsteam
 GIPHY_API_KEY=<TOKEN>
 ```
 
-Project made in colaboration with Adrià Arroyo ([@Arrooy](https://github.com/Arrooy)) and Miquel Saula ([@MSaula](https://github.com/MSaula))
+
