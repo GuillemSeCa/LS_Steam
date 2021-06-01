@@ -119,3 +119,5 @@ MYSQL_PORT=3306
 MYSQL_DATABASE=lsteam
 GIPHY_API_KEY=<TOKEN>
 ```
+
+Project made in colaboration with Adrià Arroyo ([@Arrooy](https://github.com/Arrooy)) and Miquel Saula ([@MSaula](https://github.com/MSaula))
